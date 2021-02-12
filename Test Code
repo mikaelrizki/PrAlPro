@@ -1,0 +1,108 @@
+print("Mikael Rizki Pandu Ekanto")
+
+print("="*10,"PROGRAM PENGHITUNG PERCEPATAN","="*10)
+vt = int(input("Kecepatan akhir (m/s) = "))
+v0 = int(input("Kecepatan awal (m/s) = "))
+s = int(input("Jarak tempuh (m) = "))
+
+a = ((vt**2)-(v0**2))/(2*s)
+
+print("Jadi percepatannya adalah %.1f m/s^2" % (a))
+
+breakpoint
+
+print("~"*10,"PROGRAM PENGATUR KEUANGAN","~"*10)
+saldo = int(input("Masukkan jumlah uang jajan mingguan : "))
+start = int(input("Awal menabung pada bulan ke-"))
+stop = int(input("Akhir menabung pada bulan ke-"))
+
+dana =saldo*(stop-start+1)*4
+
+makan = 0.5*dana
+kuliah = 0.2*dana
+tabungan = 0.3*dana
+
+print("Total uang untuk keperluan makan :",makan)
+print("Total uang untuk keperluan kuliah :",kuliah)
+print("Total tabungan :",tabungan)
+
+breakpoint
+
+print("*"*10,"PROGRAM PENGHITUNG KEUNTUNGAN","*"*10)
+print()
+
+print("-"*10,"GRADE A","-"*10)
+beli1=int(input("Harga beli = "))
+jual1=int(input("Harga jual = "))
+berat1=int(input("Jumlah penjualan (dalam kg) = "))
+
+laba1=jual1*berat1
+keuntungan1=((jual1-beli1)*berat1)
+persen1=keuntungan1*100/(beli1*berat1)
+
+print("Penghasilan kotor penjualan apel grade A = Rp",laba1)
+print("Keuntungan dalam persen ->",round((persen1),2),"%")
+print("Keuntungan penjualan",berat1,"kg apel grade A adalah Rp ",keuntungan1)
+print()
+
+print("-"*10,"GRADE B","-"*10)
+beli2=int(input("Harga beli = "))
+jual2=int(input("Harga jual = "))
+berat2=int(input("Jumlah penjualan (dalam kg) = "))
+
+laba2=jual2*berat2
+keuntungan2=((jual2-beli2)*berat2)
+persen2=keuntungan2*100/(beli2*berat2)
+
+print("Penghasilan kotor penjualan apel grade B = Rp",laba2)
+print("Keuntungan dalam persen ->",round((persen2),2),"%")
+print("Keuntungan penjualan",berat2,"kg apel grade B adalah Rp ",keuntungan2)
+print()
+
+print("-"*10,"GRADE C","-"*10)
+beli3=int(input("Harga beli = "))
+jual3=int(input("Harga jual = "))
+berat3=int(input("Jumlah penjualan (dalam kg) = "))
+
+laba3=jual3*berat3
+keuntungan3=((jual3-beli3)*berat3)
+persen3=keuntungan3*100/(beli3*berat3)
+
+print("Penghasilan kotor penjualan apel grade C = Rp",laba3)
+print("Keuntungan dalam persen ->",round((persen3),2),"%")
+print("Keuntungan penjualan",berat3,"kg apel grade C adalah Rp ",laba3)
+print()
+
+print("-"*10,"GRADE D","-"*10)
+beli4=int(input("Harga beli = "))
+jual4=int(input("Harga jual = "))
+berat4=int(input("Jumlah penjualan (dalam kg) = "))
+
+laba4=jual4*berat4
+keuntungan4=((jual4-beli4)*berat4)
+persen4=keuntungan4*100/(beli4*berat4)
+
+print("Penghasilan kotor penjualan apel grade D = Rp",laba4)
+print("Keuntungan dalam persen ->",round((persen4),2),"%")
+print("Keuntungan penjualan",berat4,"kg apel grade D adalah Rp ",keuntungan4)
+print()
+
+print("-"*10,"SUMMARIZE","-"*10)
+total_laba=laba1+laba2+laba3+laba4
+total_keuntungan=keuntungan1+keuntungan2+keuntungan3+keuntungan4
+print("Hasil kotor seluruh penjualan adalah Rp",total_laba)
+print("Total keuntungan seluruh penjualan adalah Rp",total_keuntungan)
+
+breakpoint
+
+n1 = int(input("Masukkan jumlah anak = "))
+x1 = float(input("Masukkan berat rata-rata = "))
+n2 = int(input("Masukkan jumlah anak yang sakit = "))
+x2 = float(input("Masukkan berat rata-rata setelah dikurangi anak yang sakit = "))
+
+#x_anak_sakit = ((x1*n1)-((n1-n2)*x2))/n2
+x_anak_sakit = ((n1*x1)-((n1-n2)*x2))/n2
+
+print("Jadi berat rata-rata 2 anak yang sakit adalah %.2f kg" % (x_anak_sakit))
+
+breakpoint
