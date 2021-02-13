@@ -1,0 +1,38 @@
+print("Mikael Rizki Pandu Ekanto (71200560)")
+print()
+'''
+Anda diminta oleh suatu perusahaan air untuk membuat suatu program untuk mesin pengisian air.
+Program tersebut berfungsi untuk menampilkan debit air dalam mesin tersebut.
+Perusahaan air tersebut memiliki sebuah bak yang akan diisi air dengan mesin yang telah disediakan.
+Uukuran dari bak tersebut adalah 150 x 90 x 200 (panjang x lebar x tinggi) dalam satuan centimeter (cm).
+Untuk mengisi penuh satu bak tersebut diperlukan waktu selama 25 detik.
+Hitunglah debit air yang dihasilkan dari mesin tersebut?
+
+input : 1) panjang bak (cm)
+        2) lebar bak (cm)
+        3) tinggi bak (cm)
+        4) lama waktu untuk mengisi penuh 1 bak air (s)
+
+proses : 1) Menghitung volume bak (p x l x t) cm^3
+         2) Mengubah volume bak ke dalam satuan liter
+         3) Menghitung debit air dengan rumus (Q = v/t)
+
+output : Menampilkan hasil perhitungan debit air
+'''
+print("~"*10,"PROGRAM PERHITUNGAN DEBIT AIR","~"*10)
+print()
+
+p = int(input("Masukkan panjang bak (cm) : "))
+l = int(input("Masukkan lebar bak (cm) : "))
+t = int(input("Masukkan tinggi bak (cm) : "))
+n = int(input("Waktu yang diperlukan untuk mengisi penuh bak (s) : "))
+
+volume_cm3 = p*l*t
+#1000cm^3 = 1 liter
+volume = volume_cm3/1000 #liter
+debit = volume/n
+
+print()
+print("Pengisian air ke dalam bak dengan ukuran panjang {}cm, lebar {}cm, dan tinggi {}cm yang memiliki volume sebesar {} liter" .format(p,l,t,volume))
+print("Waktu yang diperlukan untuk mengisi penuh bak tersebut adalah {} detik" .format(n))
+print("Maka didapatkan besar debit air yaitu {} liter/detik" .format(debit))
