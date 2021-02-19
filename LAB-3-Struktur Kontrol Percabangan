@@ -1,0 +1,56 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+Topik : Struktur Kontrol Percabangan
+
+Anda diminta untuk membuat sebuah program yaitu "Input Checker"
+Program tersebut digunakan untuk menganalisis tipe input yang akan diinputkan oleh user.
+Setelah dilakukan komputasi anda diminta untuk menampilkan tipe input yang diminta.
+Jika input user berupa bilangan maka harus dikategorikan lagi menjadi 2 kategori yaitu <int> atau <float>
+Kemudian dikategorikan juga, apakah bilangan tersebut berupa bilangan positif atau negatif atau Nol.
+
+Input    : Input dari user baik berupa <string> atau <int> atau <float> 
+
+Proses   : 1. Menggunakan percabangan untuk memisahkan antara input berupa <string> dengan input <int> atau <float>
+              ~ Jika input berupa bilangan atau angka atau bilangan maka akan dikategorikan sebagai <int> atau <float>
+              ~ Jika input berupa huruf/kata/kalimat maka akan dikategorikan sebagai <string>
+
+           2. Menggunakan percabangan untuk menganalisis apakah bilangan tersebut termasuk bilangan bulat atau desimal
+
+           3. Menggunakan percabangan untuk memisahkan tipe bilangan tersebut
+              ~ Jika bilangan tersebut >0 maka akan dikategorikan sebagai bilangan positif
+              ~ Jika bilangan tersebut <0 maka akan dikategorikan sebagai bilangan negatif
+              ~ Jika bilangan tersebut =0 maka akan dikategorikan sebagai bilangan Nol
+
+Output   : Menampilkan hasil dari analisis berupa informasi dengan cara mencetak menggunakan fungsi print
+'''
+print()
+print("~"*10,"Input Checker","~"*10)
+print()
+inp = input("Masukkan input yang akan dicek : ")
+print()
+try:
+    bil=eval(inp)
+    if type(bil)==int:
+        if bil>0:
+            print("Input tersebut berupa <int>")
+            print("Input yang anda masukkan berupa bilangan bulat positif.") 
+        elif bil<0:
+            print("Input tersebut berupa <int>")
+            print("Input yang anda masukkan berupa bilangan bulat negatif")
+        else:
+            print("Input tersebut berupa <int>")
+            print("Input yang anda masukkan adalah Nol")
+    else:
+        if bil>0:
+            print("Input tersebut berupa <float>")
+            print("Input yang anda masukkan berupa bilangan desimal positif") 
+        elif bil<0:
+            print("Input tersebut berupa <float>")
+            print("Input yang anda masukkan berupa bilangan desimal negatif")
+        else:
+            print("Input tersebut berupa <float>")
+            print("Input yang anda masukkan adalah Nol")
+except:
+    print("Input yang anda masukkan berupa <string> yaitu",inp)
+print()
