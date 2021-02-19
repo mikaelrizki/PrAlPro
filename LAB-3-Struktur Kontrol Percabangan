@@ -12,7 +12,7 @@ Kemudian dikategorikan juga, apakah bilangan tersebut berupa bilangan positif at
 Input    : Input dari user baik berupa <string> atau <int> atau <float> 
 
 Proses   : 1. Menggunakan percabangan untuk memisahkan antara input berupa <string> dengan input <int> atau <float>
-              ~ Jika input berupa bilangan atau angka atau bilangan maka akan dikategorikan sebagai <int> atau <float>
+              ~ Jika input berupa bilangan atau angka maka akan dikategorikan sebagai <int> atau <float>
               ~ Jika input berupa huruf/kata/kalimat maka akan dikategorikan sebagai <string>
 
            2. Menggunakan percabangan untuk menganalisis apakah bilangan tersebut termasuk bilangan bulat atau desimal
