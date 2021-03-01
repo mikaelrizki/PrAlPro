@@ -2,85 +2,53 @@
 Mikael Rizki Pandu Ekanto (71200560)
 Universitas Kristen Duta Wacana Yogyakarta
 
-Topik    : Modular Programming (Fungsi)
-Sumber   : https://gurumuda.net/pembahasan-soal-energi-listrik.htm 
+Topik : Modular Programming (Fungsi)
+Sumber referensi : https://gurumuda.net/pembahasan-soal-energi-listrik.htm 
 
-Anda diminta untuk membuat program yang bisa digunakan untuk menghitung biaya pengeluaran listrik beberapa alat rumah tangga
-Alat yang akan dihitung adalah lampu, televisi, dan komputer. 
-Alat rumah tangga tersebut akan digunakan setiap harinya selama x jam
-Dan membutuhkan daya sebesar y watt tiap masing-masing alat yang digunakan.
-Sedangkan tarif listrik tiap kWh nya sebesar Rp 1.500. Kemudian program yang akan dibuat diharapkan 
-bisa digunakan untuk menghitung besar biaya penggunaan energi listrik untuk setiap alat tersebut, 
+Anda diminta untuk membuat program yang bisa digunakan untuk menghitung biaya pengeluaran listrik dari suatu alat.
+Alat tersebut akan digunakan setiap harinya selama x jam dan membutuhkan daya sebesar y watt.
+Sedangkan tarif listrik tiap kWh yang ditetapkan sebesar z rupiah. Kemudian program yang akan dibuat diharapkan 
+bisa digunakan untuk menghitung besar biaya penggunaan energi listrik untuk alat tersebut, 
 Besar biaya yang ditampilkan adalah besar biaya perharinya dan per satu bulan (30 Hari).
 
-Input       : 1. Input pilihan user untuk alat yang akan di cek besar biaya pengeluaran listriknya
-              2. Input lama pemakaian alat yang digunakan dalam jam
-              3. Input besar daya yang dibutuhkan alat dalam watt
+Input       : 1. Input nama dari alat yang digunakan
+              2. Input tarif listrik tiap kWh
+              3. Input lama pemakaian alat yang digunakan dalam jam
+              4. Input besar daya yang dibutuhkan alat dalam watt
 
-Proses      : 1. Mendefinisikan fungsi untuk tiap alat
+Proses      : 1. Mendefinisikan fungsi untuk perhitungan alat tersebut
 
               2. Membuat perhitungan energi listrik yang diperlukan tiap alat
-                 Energi Listrik (Wh) = Daya Listrik (W) x Selang Waktu (h)
-                 Dengan melakukan perkalian antara daya yang dibutuhkan dengan lama pemakaian perharinya () 
+                 Energi Listrik (Wh) = Daya Listrik (W) x Selang Waktu (h) 
 
-              3. Mengkonversikan satuan Energi Listrik => Wh menjadi kWh
+              3. Mengkonversikan satuan Energi Listrik menjadi kWh => Wh menjadi kWh
                  Dengan cara membagi Energi Listrik dengan 1000
            
               4. Membuat perhitungan tarif yang dikeluarkan => perkalian antara Energi listrik dengan tarif per-kWh
 
-              5. Membuat input alat pilhan user, kemudian melakukan percabangan untuk alat pilihan user
+              5. Membuat variabel input user dan pemanggilan fungsi yang telah didefinisikan sebelumnya
 
 Output      : Menampilkan hasil dari perhitungan biaya perhari dan per satu bulan (30 Hari) dari alat yang dipilih
 
-Test Case   : 1. Lampu      Daya : 8 Watt dan 12 Watt       Waktu : 6 Jam dan 7 Jam     Berjumlah : 3 Buah dan 5 Buah
-              2. Televisi   Daya : 40 Watt dan 120 Watt     Waktu : 4 Jam dan 4 Jam
-              3. Komputer   Daya : 450 Watt dan 800 Watt    Waktu : 2 Jam dan 3 Jam
+Test Case   : 1. Lampu          Waktu : 7 Jam       Daya : 12 Watt      Tarif per kWh : Rp 1.500
+              2. Komputer       Waktu : 4 Jam       Daya : 850 Watt     Tarif per kWh : Rp 1.800
 '''
-def lampu(jumlah,daya,waktu):
-   energi_wh = daya*waktu
+#Fungsi
+def biaya (nama,tarif,waktu,daya):
+   energi_wh = daya * waktu
    energi_kwh = energi_wh/1000
-   tarif_perhari = energi_kwh*1500*jumlah
-   tarif_perbulan = energi_kwh*1500*jumlah*30
-   print("Tarif penggunaan {} lampu dengan daya sebesar {} Watt selama {} Jam perharinya sebesar Rp {}" .format(jumlah,daya,waktu,tarif_perhari))
-   print("Tarif penggunaan {} lampu dengan daya sebesar {} Watt selama {} Jam pebulannya sebesar Rp {}" .format(jumlah,daya,waktu,tarif_perbulan))
+   biaya_perhari = energi_kwh * tarif
+   biaya_perbulan = biaya_perhari * 30
+   print("Untuk penggunaan {} dengan besar daya sebesar {} Watt".format(nama,daya))
+   print("Dengan penggunaan selama {} Jam perharinya".format(waktu))
+   print("Membutuhkan biaya sebesar Rp %d perharinya dan Rp %d perbulannya" % (biaya_perhari,biaya_perbulan))
 
-def televisi(daya,waktu):
-   energi_wh = daya*waktu
-   energi_kwh = energi_wh/1000
-   tarif_perhari = energi_kwh*1500
-   tarif_perbulan = energi_kwh*1500*30
-   print("Tarif penggunaan televisi dengan daya sebesar {} Watt selama {} Jam perharinya sebesar Rp {}" .format(daya,waktu,tarif_perhari))
-   print("Tarif penggunaan televisi dengan daya sebesar {} Watt selama {} Jam pebulannya sebesar Rp {}" .format(daya,waktu,tarif_perbulan))
+#Input
+print("~"*10,"Program Perhitungan Tarif Listrik","~"*10)
+nama = input("Masukkan nama alat : ")
+tarif = int(input("Tarif listrik per-kWh sebesar Rp "))
+waktu = int(input("Masukkan lama waktu penggunaan alat (Jam) : "))
+daya = int(input("Masukkan besar daya yang dibutuhkan (Watt) : "))
 
-def komputer(daya,waktu):
-   energi_wh = daya*waktu
-   energi_kwh = energi_wh/1000
-   tarif_perhari = energi_kwh*1500
-   tarif_perbulan = energi_kwh*1500*30
-   print("Tarif penggunaan komputer dengan daya sebesar {} Watt selama {} Jam perharinya sebesar Rp {}" .format(daya,waktu,tarif_perhari))
-   print("Tarif penggunaan komputer dengan daya sebesar {} Watt selama {} Jam pebulannya sebesar Rp {}" .format(daya,waktu,tarif_perbulan))
-
-print()
-print("~"*10,"Penghitung Tarif Listrik","~"*10)
-print()
-print("Pilih alat yang akan dihitung :")
-print("1. Lampu")
-print("2. Televisi")
-print("3. Komputer")
-pilihan = int(input("Masukkan pilihan Anda : "))
-print()
-if pilihan == 1:
-   jumlah = int(input("Masukkan jumlah lampu : "))
-   daya = int(input("Masukkan besar daya lampu (Watt) : "))
-   waktu = int(input("Masukkan lama penggunaan lampu (Jam) : "))
-   lampu(jumlah,daya,waktu)
-elif pilihan == 2:
-   daya = int(input("Masukkan besar daya televisi (Watt) : "))
-   waktu = int(input("Masukkan lama penggunaan televisi (Jam) : "))
-   televisi(daya,waktu)
-elif pilihan == 3:
-   daya = int(input("Masukkan besar daya komputer (Watt) : "))
-   waktu = int(input("Masukkan lama penggunaan komputer (Jam) : "))
-   komputer(daya,waktu)
-else:
-   print("Invalid Input.")
+#Proses dan Output
+biaya(nama,tarif,waktu,daya)
