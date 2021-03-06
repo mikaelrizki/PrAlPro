@@ -1,0 +1,66 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik : Struktur Kontrol Perulangan
+Sumber : kelasprogrammer.com
+
+Anda diminta oleh seorang guru SMA untuk membuat suatu program.
+Program tersebut akan digunakan untuk menghitung rata-rata dari tinggi badan siswa dikelasnya.
+Akan tetapi anda diminta untuk membuat program yang dapat memasukkan input manual untuk setiap siswa.
+Di akhir program Anda juga diminta untuk menampilkan sebaran tinggi badan dari seluruh siswa
+
+Input       : 1. Banyak siswa yang akan dihitung
+              2. Tinggi badan dari setiap siswa di kelas
+
+Proses      : 1. Membuat variable untuk input banyak siswa
+              2. Menggunakan struktur kontrol perulangan untuk melakukan perhitungan
+              3. Membuat variabel untuk menentukan sebaran tinggi badan
+              4. Menghitung rata-rata tinggi badan siswa
+
+Output      : 1. Menampilkan hasil sebaran tinggi badan dari seluruh siswa 
+              2. Menampilkan rata-rata tinggi badan seluruh siswa
+
+Test Case   : - 9 Siswa     = 149  150  152  155  168  170  176  180  185
+              - 12 Siswa    = 145  150  151  156  159  160  165  170  171  171  180  182
+'''
+print("~"*60)
+print("PROGRAM PERHITUNGAN TINGGI BADAN")
+print("~"*60)
+
+jumlah = int(input("Masukkan jumlah siswa yang akan dihitung : "))
+
+total = 0
+tinggi_0_150 = 0
+tinggi_151_160 = 0
+tinggi_161_170 = 0
+tinggi_171_180 = 0
+lebih_dari_180 = 0
+
+for i in range (1,jumlah+1):
+    tinggi = int(input("Masukkan tinggi badan siswa %d (cm) : " % (i)))
+    if tinggi>180:
+        total += tinggi
+        lebih_dari_180 += 1
+    elif tinggi>170:
+        total += tinggi
+        tinggi_171_180 += 1
+    elif tinggi>160:
+        total += tinggi
+        tinggi_161_170 += 1
+    elif tinggi>150:
+        total += tinggi
+        tinggi_151_160 += 1
+    else: # <=150
+        total += tinggi
+        tinggi_0_150 += 1
+
+print("~"*60)
+print("Siswa dengan tinggi badan <= 150 cm sebanyak {}" .format(tinggi_0_150))
+print("Siswa dengan tinggi badan 151 - 160 cm sebanyak {}" .format(tinggi_151_160))
+print("Siswa dengan tinggi badan 161 - 170 cm sebanyak {}" .format(tinggi_161_170))
+print("Siswa dengan tinggi badan 171 - 180 cmsebanyak {}" .format(tinggi_171_180))
+print("Siswa dengan tinggi badan > 180 cm sebanyak {}" .format(lebih_dari_180))
+print("~"*60)
+rerata = round(total/jumlah,1)
+print("Rata-rata tinggi badan dari {} orang adalah {} cm".format(jumlah,rerata))
