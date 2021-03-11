@@ -1,0 +1,51 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik : Struktur Kontrol Kompleks
+Sumber : https://www.anakit.id/2019/05/program-python-bintang-segitiga.html
+
+Anda diminta untuk membuat sebuah pola dalam python
+Pola tersebut berisikan angka 0 dan 1 dan dibentuk menyerupai menara segitiga
+Pola menara yang dibuat akan memiliki tinggi sebanyak n baris
+Nilai dari n adalah input dari user.
+
+Input       : Input tinggi menara (n)
+
+Proses      : 1. Membuat perulangan untuk tiap barisnya
+              2. Membuat perulangan spasi untuk memberi jarak
+              3. Membuat percabangan di dalam perulangan untuk membedakan 0 dan 1
+
+Output      : Menampilkan pola yang akan terbentuk
+
+Contoh : n = 5
+
+         01|     0
+         02|    0 1
+         03|   0 1 0
+         04|  0 1 0 1
+         05| 0 1 0 1 0
+
+Test Case   : - n = 5     - n = 7     - n = 15
+'''
+print()
+n = int(input("n = "))
+
+print()
+for i in range (1,n+1):
+    # Cetak Indikator Baris
+    if int(i)<10:
+        print("0"+str(i),end="| ")
+    else:
+        print(i,end="| ")
+    # Cetak Spasi
+    for j in range (n-i):
+        print(" ",end="")
+    # Cetak Digit
+    for j in range (i):
+        if j%2 == 1: # Bilangan Ganjil
+            print("1",end=" ")
+        else: # Bilangan Genap
+            print("0",end=" ")
+    print()
+print()
