@@ -1,0 +1,59 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Strings
+Sumber : https://www.anakit.id/
+
+Anda diminta untuk membuat sebuah program
+yang dapat menampilkan informasi dari tiap digit yang tertera pada NIM
+NIM tersebut sepanjang 8 digit, dimana 2 digit pertama merupakan kode jurusan yang di ambil
+Kode jurusan => 71 (Informatika), 61 (Sistem Informasi), 41 (Kedokteran)
+kemudian dilanjutkan dengan 2 digit yang menunjukkan tahun angkatan
+dan 4 digit terakhir yaitu tanggal lahir dari mahasiswa yang bersangkutan (DDMM)
+
+Input       : NIM Mahasiswa => 8 Digit angka
+
+Proses      : 1. Membuat variabel untuk dari input NIM
+              2. Membuat variabel untuk jurusan, angkatan, tanggal, dan bulan
+              3. Mengambil beberapa digit NIM menggunakan string slice
+              4. Membuat kontrol percabangan untuk variabel jurusan
+              5. Menggunakan list dan indexing untuk variabel bulan
+
+Output      : Menampilkan informasi tiap digit yang terdapat dalam NIM
+
+Contoh : NIM : 71201004
+
+         Nomor Induk Mahasiswa Anda adalah 71201004
+         Anda merupakan mahasiswa Jurusan Informatika
+         Anda merupakan mahasiswa angkatan 2020
+         Tanggal lahir Anda adalah 10 April
+
+Index  :  7   1   2   0   1   0   0   4
+         [0] [1] [2] [3] [4] [5] [6] [7] 
+
+Test Case   : NIM : 71191412, 61200101, 41182203
+'''
+nim = input("Masukkan NIM Anda : ")
+
+jurusan = nim[:2]
+if jurusan == "71":
+    jurusan = "Informatika"
+elif jurusan == "61":
+    jurusan = "Sistem Informasi"
+elif jurusan == "41":
+    jurusan = "Kedokteran"
+
+angkatan = nim[2:4]
+
+tanggal = nim[4:6]
+
+nama_bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"]
+bulan = nim[6:]
+bulan = int(bulan)
+bulan = nama_bulan[bulan-1]
+
+print("Nomor Induk Mahasiswa Anda adalah "+nim)
+print("Anda merupakan mahasiswa Jurusan "+jurusan)
+print("Anda merupakan mahasiswa angkatan 20"+angkatan)
+print("Tanggal lahir Anda adalah "+tanggal+" "+bulan)
