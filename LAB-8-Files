@@ -1,0 +1,49 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Files
+Sumber : https://www.petanikode.com/python-file/ dan Modul Praktikum AlPro UKDW Revisi 2020
+
+Anda diminta membuat quiz menggunakan Python
+Soal dan jawaban dari quiz tersebut telah disediakan dalam file "soal dan jawaban.txt"
+Dalam file tersebut disediakan beberapa butir soal dan jawaban, yang dipisahkan dengan tanda "=>"
+Anda diminta membuat program yang dapat menampilkan soal dan meminta input jawaban dari user,
+kemudian jawaban tersebut akan dicocokkan dengan jawaban yang terdapat dalam file.
+Jika jawaban sesuai maka akan ditampilkan pesan "Jawaban Anda benar!", sedangkan jika jawaban kurang sesuai
+maka akan ditampilkan pesan "Jawaban Anda salah!"
+
+Input       : Input jawaban untuk setiap soal yang ada dalam file
+
+Proses      : 1. Membuka file dengan perintah open dalam variabel yaitu handle
+              2. Membuat perulangan untuk mencetak tiap baris yang terdapat dalam file
+              3. Memisahkan antara soal dan jawaban untuk setiap barisnya
+              4. Memberikan error handling untuk penggunaan huruf kapital dan spasi
+              5. Mencetak soal dan memberikan variabel untuk input jawaban
+              6. Membuat struktur kontrol percabangan untuk jawaban
+
+Output      : Menampilkan soal dalam file serta informasi terkait benar/salahnya jawaban yang dimasukkan
+
+Nama file   : "soal dan jawaban.txt"
+
+Contoh : ~~~~~~~~~~~~~~~~~~~~~~     ~~~~~~~~~~~~~~~~~~~~~~      ~~~~~~~~~~~~~~~~~~~~~~
+          5 x 5 = ?                  12 + 3 x 5 ?                Apa topik kali ini?
+          Jawab = 25                 Jawab = 8                   Jawab = fIlE
+          Jawaban Anda benar!        Jawaban Anda salah!         Jawaban Anda benar!
+         ~~~~~~~~~~~~~~~~~~~~~~     ~~~~~~~~~~~~~~~~~~~~~~      ~~~~~~~~~~~~~~~~~~~~~~
+'''
+print("~"*50)
+handle = open("soal dan jawaban.txt","r")
+
+for line in handle:
+    line = line.split("=>")
+    print(line[0].strip())
+    jawaban = input("Jawab = ")
+    jawaban = jawaban.lower()
+    kunci = line[1].strip()
+    kunci = kunci.lower()
+    if jawaban == kunci:
+        print("Jawaban Anda benar!")
+    else:
+        print("Jawaban Anda salah!")
+    print("~"*50)
