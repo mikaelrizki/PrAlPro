@@ -1,0 +1,71 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Tipe Data List
+
+Anda diminta untuk membuat sebuah program Daftar Nama Mahasiswa,
+Program tersebut diharapkan memiliki menu untuk menambah daftar mahasiswa, 
+menampilkan daftar mahasiswa yang sudah diurutkan sesuai abjad dan menyisipkan nomor absen,
+dan menu untuk memanggil nomor absen tertentu.
+
+Input       : Input menu pilihan user, serta jumlah dan nama untuk dimasukkan ke dalam daftar mahasiswa
+
+Proses      : 1. Membuat daftar pilihan menu program dan list tampungan daftar nama mahasiswa
+              2. Membuat perulangan menggunakan while
+              3. Menambahkan input menu dan struktur kontrol percabangan untuk pilihan menu
+              4. Menu 1 : Membuat input jumlah mahasiswa dan membuat perulangan untuk memasukkan nama kedalam list
+              5. Menu 2 : Menambahkan fungsi sort pada list, kemudian mencetak daftar mahasiswa
+              6. Menu 3 : Membuat input nomor absen yang akan dipanggil dan menampilkan nama mahasiswanya
+              7. Menu 4 : Menambahkan fungsi untuk keluar dari perulangan dan mengakhiri program
+              8. Menambahkan error handling untuk inputan menu selain angka 1-4
+
+Output      : Menampilkan hasil yang sesuai dengan fungsi menu yang diberikan
+
+Contoh Daftar Nama Mahasiswa yang diharapkan (Menu 2) :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Absen    Nama Mahasiswa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1        Adrian Sutejo
+2        Kurniawan Adi
+3        Mikael Rizki Pandu
+4        Yohanes Nugroho
+5        Zhi Valdo Fabio
+
+'''
+print("~"*5,"Program Daftar Nama Mahasiswa","~"*5)
+print("1. Tambah daftar mahasiswa")
+print("2. Tampilkan daftar mahasiswa")
+print("3. Panggil nomor absen tertentu")
+print("4. Keluar dari program")
+
+daftar_mahasiswa = []
+
+while True:
+    print()
+    menu = int(input("Masukkan menu yang dipilih : "))
+    if menu == 1:
+        jumlah = int(input("Masukkan banyak mahasiswa : "))
+        for i in range (jumlah):
+            nama = input("Masukkan nama mahasiswa :")
+            daftar_mahasiswa.append(nama)
+    elif menu == 2:
+        daftar_mahasiswa.sort()
+        print("~"*31)
+        print("Absen \t Nama Mahasiswa")
+        print("~"*31)
+        absen = 1
+        for nama in daftar_mahasiswa:
+            print("%d \t %s" % (absen,nama))
+            absen += 1
+    elif menu == 3:
+        request = int(input("Masukkan nomor absen yang akan dipanggil :"))
+        if request<=len(daftar_mahasiswa):
+            print("Mahasiswa dengan nomor absen",request,"adalah",daftar_mahasiswa[request-1])
+        else:
+            print("Diluar Jangkauan")
+    elif menu == 4:
+        print("Thank you.")
+        break
+    else: 
+        print("Invalid menu.")
