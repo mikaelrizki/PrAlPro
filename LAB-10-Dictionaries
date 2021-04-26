@@ -1,0 +1,68 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Dictionaries
+
+Anda diminta oleh seorang penjual buah untuk membuatkan sebuah program pencatat daftar buah,
+program tersebut diharapkan dapat menerima input berupa nama dan jumlah buah yang laku terjual.
+Input tersebut akan dimasukkan oleh penjual buah setiap ada buah yang terjual (Terus-menerus),
+dan ketika toko sudah tutup penjual dapat melihat daftar buah dan juga mengakhiri program tersebut
+dengan cara menginputkan perintah "STOP"
+
+Input       : Input nama dan jumlah buah
+
+Proses      : 1. Membuat dictionary untuk menampung nama dan jumlah buah
+              2. Membuat perulangan menggunakan While
+              3. Menambahkan input untuk nama dan jumlah buah
+              4. Memasukkan input nama dan jumlah buah ke dalam dictionary dengan menggunakan percabangan
+              5. Menambahkan list tampungan untuk nama buah
+              6. Mengurutkan nama buah yang terdapat dalam list sesuai dengan abjad
+              7. Memanggil isi dari dictionary dengan menggunakan perulangan sesuai dengan list yang sudah diurutkan
+
+Output      : Menampilkan daftar seluruh buah yang terjual beserta dengan jumlahnya
+
+Contoh Output daftar buah di akhir program :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Nama Buah    Jmlh Buah
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Anggur       14
+    Mangga       12
+    Melon        2
+    Pisang       8
+    Apel         15
+    Kelengkeng   7
+    Jeruk        9
+
+'''
+print("~"*16,"Program Daftar Buah","~"*16)
+print("Untuk menyelesaikan program dan menampilkan daftar buah,")
+print('Masukkan input yaitu "STOP"')
+print("~"*53)
+
+dictionary = dict()
+
+while True:
+    nama_buah = input("Masukkan nama buah : ")
+    if nama_buah.lower() == "stop":
+        print()
+        break
+    jumlah_buah = int(input("Masukkan jumlah %s : " % nama_buah))
+    print("~"*53)
+    if nama_buah not in dictionary:
+        dictionary[nama_buah] = jumlah_buah
+    else:
+        dictionary[nama_buah] = dictionary[nama_buah] + jumlah_buah
+
+list_nama_buah = list(dictionary.keys())
+list_nama_buah.sort()
+
+print('''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Nama Buah    Jmlh Buah
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''')
+
+for i in list_nama_buah:
+    for j in dictionary:
+        if i == j:
+            print("   ",j,"\t",dictionary[j])
+print()
