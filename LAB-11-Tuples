@@ -1,0 +1,56 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Tipe Data Tuple
+
+Anda akan diberikan 2 buah tuple (Jumlah elemen sama) sebagai input, kedua tuple tersebut akan berisikan bilangan bulat.
+Kemudian anda diminta untuk mengkalikan setiap elemen pada index yang sama di kedua buah tuple.
+Hasil perkalian tersebut harus dimasukkan kedalam sebuah dictionary, dengan key berupa elemen dalam tuple, dan value berupa hasil perkaliannya.
+Selanjutnya anda diminta untuk menampilkan satu persatu isi dari dictionary tersebut menggunakan perulangan for (Dengan kombinasi menggunakan Tuple).
+Di akhir program anda juga diminta untuk menampilkan daftar hasil perkalian yang sudah diurutkan dalam bentuk tuple.
+
+Input       : Berupa dua buah tuple berisikan bilangan bulat dengan jumlah yang sama
+
+Proses      : 1. Membuat dictionary untuk menampung elemen tiap tuple beserta hasil perkaliannya
+              2. Membuat perulangan untuk memasukkan elemen dan hasil perkalian ke dalam dictionary
+              3. Menampilkan daftar perkalian dengan menggunakan perulangan for
+              4. Membuat list baru untuk menampung nilai value dari dictionary
+              5. Menampilkan daftar hasil perkalian dengan cara mengubah list tersebut ke bentuk tuple
+              6. Mengurutkan list baru dengan metode sort()
+              7. Menampilkan daftar hasil perkalian yang sudah diurutkan dalam bentuk tuple
+
+Output      : Menampilkan bentuk dictionary, daftar perkalian, dan daftar hasil dalam bentuk tuple
+
+              Tuple 1 : (1,2,3)
+              Tuple 2 : (3,4,0)
+              Dictionary : {'1 x 3': 3, '2 x 4': 8, '3 x 0': 0}
+
+              Daftar perkalian :
+              1 x 3 = 3
+              2 x 4 = 8
+              3 x 0 = 0
+            
+              Daftar hasil dalam bentuk Tuple : (3,8,0)
+              Hasil setelah diurutkan dalam bentuk Tuple : (0,3,8)
+'''
+tupA = (2,5,6)
+tupB = (1,7,0)
+
+print("\nTuple 1 :",tupA)
+print("Tuple 2 :",tupB)
+
+tampungan = dict()
+for i in range(len(tupA)):
+    tampungan["%d x %d" % (tupA[i],tupB[i])] =tupA[i]*tupB[i]
+
+print("Dictionary :",tampungan,"\n")
+print("Daftar perkalian :")
+for key,val in list(tampungan.items()):
+    print(key,"=",val)
+
+hasil = list(tampungan.values())
+print("\nDaftar hasil dalam bentuk Tuple :",tuple(hasil))
+
+hasil.sort()
+print("Hasil setelah diurutkan dalam bentuk Tuple :",tuple(hasil))
