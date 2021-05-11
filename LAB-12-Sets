@@ -1,0 +1,50 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Tipe Data Set
+
+Anda sedang mempelajari sebuah topik pada mata kuliah Matematika Diskrit yaitu Himpunan.
+Kemudian, anda diminta untuk membuat sebuah program yang mengimplementasikan beberapa operasi pada himpunan.
+Program tersebut akan menampilkan gabungan, irisan, dan anggota salah satu himpunan mata kuliah yang diikuti oleh dua orang mahasiswa.
+
+Input       : Jumlah mata kuliah dan nama mata kuliah yang diikuti oleh kedua mahasiswa
+
+Proses      : 1. Membuat 2 buah variabel yang berisikan set baru (Set Kosong)
+              2. Membuat input banyaknya mata kuliah yang diikuti oleh siswa
+              3. Membuat perulangan sebanyak jumlah input, untuk memasukkan nama mata kuliah ke dalam set
+              4. Melakukan pencetakan daftar mata kuliah yang diikuti oleh kedua mahasiswa dengan menggunakan operator union()
+              5. Melakukan pencetakan daftar mata kuliah yang sama diantara kedua mahasiswa dengan menggunakan operator intersection()
+              6. Melakukan pencetakan daftar mata kuliah yang diikuti oleh mahasiswa pertama atau kedua saja dengan menggunakan operator difference()
+              7. Melakukan pencetakan daftar mata kuliah yang diikuti oleh salah satu mahasiswa dengan menggunakan operator symetric_difference()
+
+Output      : Menampilkan hasil operasi pada himpunan, seperti berikut :
+
+              Mata kuliah yang diikuti mahasiswa pertama : Fisika, Kimia, Biologi
+              Mata kuliah yang diikuti mahasiswa kedua   : Sejarah, PKn, Kimia
+
+              Semua mata kuliah yang diikuti oleh kedua mahasiswa      : {'Biologi', 'Fisika', 'Sejarah', 'Kimia', 'PKn'}
+              Mata kuliah yang sama diantara kedua mahasiswa           : {'Kimia'}
+              Mata kuliah yang hanya diikuti mahasiswa pertama         : {'Fisika', 'Biologi'}
+              Mata kuliah yang hanya diikuti mahasiswa kedua           : {'PKn', 'Sejarah'}
+              Mata kuliah yang hanya diikuti oleh salah satu mahasiswa : {'PKn', 'Biologi', 'Fisika', 'Sejarah'}
+'''
+set1, set2 = set(), set()
+
+matkul_siswa1 = int(input("Masukkan jumlah mata kuliah yang diikuti oleh mahasiswa pertama : "))
+for i in range(1,matkul_siswa1+1):
+    matkul = input("Masukkan nama mata kuliah ke-%d : " % i)
+    set1.add(matkul)
+print()
+
+matkul_siswa2 = int(input("Masukkan jumlah mata kuliah yang diikuti oleh mahasiswa kedua : "))
+for i in range(1,matkul_siswa2+1):
+    matkul = input("Masukkan nama mata kuliah ke-%d : " % i)
+    set2.add(matkul)
+print()
+
+print("Semua mata kuliah yang diikuti oleh kedua mahasiswa      :",set1.union(set2))
+print("Mata kuliah yang sama diantara kedua mahasiswa           :",set1.intersection(set2))
+print("Mata kuliah yang hanya diikuti mahasiswa pertama         :",set1.difference(set2))
+print("Mata kuliah yang hanya diikuti mahasiswa kedua           :",set2.difference(set1))
+print("Mata kuliah yang hanya diikuti oleh salah satu mahasiswa :",set1.symmetric_difference(set2))
