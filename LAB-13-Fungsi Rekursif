@@ -1,0 +1,59 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Fungsi Rekursif
+Sumber : Modul Praktikum Algoritma dan Pemrograman UKDW 2020/2021
+
+Anda diminta untuk menampilkan hasil penjumlahkan seluruh angka pada string
+Akan tetapi anda diminta untuk menggunakan fungsi rekursif dalam membuat programnya
+Supaya lebih menantang input yang diberikan akan disisipkan oleh huruf dan karakter unik
+Hasil output yang diharapkan adalah penjumlahan seluruh angka dari input
+
+Input         : String yang berisikan karakter unik dan angka
+
+Proses        : 1. Mendefinisikan sebuah fungsi baru dengan nama digit()
+                2. Menghilangkan semua karakter selain angka pada input
+                3. Membuat sebuah list yang berisikan setiap angka pada input
+                4. Membuat base case sebagai titik berhenti dari fungsi rekursifnya => Ketika panjang listnya adalah 0 atau 1
+                5. Membuat rekursif case untuk memanggil kembali fungsi digit()
+
+Output        : Menampilkan hasil penjumlahan setiap angka yang ada dalam inputan
+
+Contoh Input  : "%$a1^-2@3#="
+Output        : 1 + 2 + 3 = 6
+Penjelasan    : Pada contoh input hanya akan diambil angkanya saja, yaitu 1,2,3
+                Kemudian akan dilakukan penjumlahan seluruh angka yang ada pada input 1+2+3
+                Sehingga menghasilkan keluaran yaitu 6
+
+Test Case     : "%$a1^-2@3#=" dan "2$5g&*A1"
+'''
+def digit(x):
+    y = ""
+    for i in x:
+        try:
+            y += str(int(i))
+        except:
+            continue
+    
+    x = list(y)
+
+    # Base Case
+    if len(x) == 0:
+        print("0",end=" = ")
+        return 0
+    elif len(x) == 1:
+        print(x[0],end=" = ")
+        return int(x[0])
+    
+    # Rekursif Case
+    else:
+        angka = int(x[0])
+        x.remove(str(angka))
+        print(angka,end=" + ")
+        return angka + digit(x)
+
+#print(digit("%$a1^-2@3#="))
+#print(digit("2$5g&*A1"))
+#print(digit("jashfdoia hfioa"))
+print(digit("1"))
