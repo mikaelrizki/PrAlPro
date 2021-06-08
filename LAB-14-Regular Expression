@@ -1,0 +1,58 @@
+'''
+Mikael Rizki Pandu Ekanto (71200560)
+Universitas Kristen Duta Wacana Yogyakarta
+
+Topik  : Regular Expression
+
+Anda diminta membuah sebuah menu daftar akun baru / sign-up pada sebuah website.
+Di dalam menu tersebut memerlukan 3 buah input yaitu nama, alamat e-mail, dan kata sandi.
+Karena pengguna website ini adalah mahasiswa UKDW, maka input alamat e-mail harus memiliki domain @ukdw.ac.id
+Sementara itu untuk password yang akan dibuat harus berisi minimal 8 karakter.
+Pada password harus memuat minimal 1 huruf kapital, 1 huruf kecil, 1 angka, dan 1 simbol unik seperti [-+!@#$%^&*.,?]
+User akan diberikan kesempatan 3 kali untuk memasukkan input.
+
+Input         : Nama pengguna, Alamat e-mail, Kata sandi
+
+Proses        : 1. Import fungsi Regular Expression
+                2. Membuat input nama, e-mail, dan password
+                3. Menggunakan struktur kontrol percabangan untuk mencocokkan dengan pola regex
+                4. Membuat fungsi print untuk menampilkan informasi
+
+Output        : Menampilkan informasi ketika semua syarat terpenuhi atau ketika input tidak sesuai dengan kriteria
+
+Contoh Input  : Nama             : Mikael Rizki
+                E-mail           : mikael.rizki@ukdw.ac.id
+                Kata Sandi       : Qwerty98#
+
+                Akun berhasil dibuat.
+                Selamat datang, Mikael Rizki
+                Alamat email Anda adalah mikael.rizki@ukdw.ac.id
+                Password Anda adalah Q*******#
+'''
+import re
+kesempatan = 3
+
+nama = input("Nama \t\t : ")
+
+while kesempatan>0:
+    email = input("E-mail \t\t : ")
+    if re.match(".*@ukdw.ac.id",email):
+        kesempatan = 3
+        break
+    else:
+        print("Alamat e-mail yang Anda masukkan tidak sesuai.")
+        kesempatan -= 1
+        print()
+
+while kesempatan>0:
+    password = input("Kata sandi \t : ")
+    if re.match("(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*\W)",password) and len(password)>8:
+        print("\nAkun berhasil dibuat.")
+        print("Selamat datang,",nama)
+        print("Alamat email Anda adalah",email)
+        password = password[0]+"*"*(len(password)-2)+password[-1]
+        print("Password Anda adalah",password)
+        break
+    else:
+        print("Kata sandi yang Anda buat belum sesuai dengan kriteria.")
+        print()
